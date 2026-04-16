@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Interview Simulator</title>
+</head>
+<body>
+    <h1>Welcome to AI Interview Simulator</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label>Select Role:</label>
+        <select name="role">
+            <option value="Java Developer">Java Developer</option>
+            <option value="Python Developer">Python Developer</option>
+            <option value="HR">HR</option>
+        </select>
+
+        <button type="submit">Start Interview</button>
+    </form>
+</body>
+</html>
