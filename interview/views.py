@@ -1,10 +1,11 @@
 from django.shortcuts import render
+from .services.ai_service import generate_question
 
 def home(request):
     if request.method == "POST":
         role = request.POST.get('role')
 
-        question = f"Tell me about yourself as a {role}"
+        question = generate_question(role)
 
         return render(request,'interview.html',{
             'question':question,                        
