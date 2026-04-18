@@ -1,17 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Result</title>
-</head>
-<body>
+<h2>Your Score: {{ score }}/10</h2>
 
-    <h2>Your Answer:</h2>
-    <p>{{ answer }}</p>
+<h3>Strengths:</h3>
+<ul>
+  {% for s in strengths %}
+    <li>{{ s }}</li>
+  {% endfor %}
+</ul>
 
-    <h2>Feedback:</h2>
-    <p>{{ feedback }}</p>
+<h3>Weaknesses:</h3>
+<ul>
+  {% for w in weaknesses %}
+    <li>{{ w }}</li>
+  {% endfor %}
+</ul>
 
-    <a href="/">Try Again</a>
+<h3>Suggestions:</h3>
+<ul>
+  {% for sug in suggestions %}
+    <li>{{ sug }}</li>
+  {% endfor %}
+</ul>
 
-</body>
-</html>
+<a href="/">Try Again</a>

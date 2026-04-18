@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .services.ai_service import generate_question
+from .services.evalution_service import evaluate_answer
 
 def home(request):
     if request.method == "POST":
@@ -15,11 +16,13 @@ def home(request):
     
 def submit_answer(request):
     if request.method == "POST":
-        answer = request.POST.get('answer')
+        answer = request.POST.get("answer")
 
-        feedback = "Good attempt! Try to be more detailed."
+        result = evaluate_answer(answer)
 
-        return render(request,'result.html',{
-            'answer':answer,
-            'feedback':feedback
+        return render(request, "result.html", {
+            "score": result["score"],
+            "strengths": result["strengths"],
+            "weaknesses": result["weaknesses"],
+            "suggestions": result["suggestions"]
         })

@@ -1,19 +1,42 @@
-from google import genai
-import os
+import random
 
-client = genai.Client(api_key=os.getenv("AI_Interview_API_KEY"))
+# Question database
+QUESTIONS = {
+    "Python Developer": [
+        "What is Python and why is it used?",
+        "Explain list vs tuple in Python.",
+        "What are decorators in Python?",
+        "Explain OOP concepts in Python.",
+        "What is a Python virtual environment?"
+    ],
+    "Java Developer": [
+        "What is JVM?",
+        "Explain OOP concepts in Java.",
+        "Difference between interface and abstract class.",
+        "What is multithreading?",
+        "Explain exception handling in Java."
+    ],
+    "web": [
+        "What is HTML, CSS, and JavaScript?",
+        "Difference between frontend and backend.",
+        "What is REST API?",
+        "Explain how HTTP works.",
+        "What is responsive design?"
+    ],
+    "HR": [
+        "Tell me about yourself.",
+        "Why should we hire you?",
+        "What are your strengths and weaknesses?",
+        "Where do you see yourself in 5 years?",
+        "Describe a challenge you faced."
+    ]
+}
 
 def generate_question(role):
-    try:
-        prompt = f"Generate one interview question for a {role}. Keep it professional."
+    #role = role.lower()
 
-        response = client.models.generate_content(
-            model="gemini-1.5-flash",
-            contents=prompt
-        )
+    if role in QUESTIONS:
+        return random.choice(QUESTIONS[role])
 
-        return response.text
-
-    except Exception as e:
-        print("ERROR:", e)
-        return f"Tell me about yourself as a {role}"
+    # Default fallback
+    return "Tell me about yourself."
