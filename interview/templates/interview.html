@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Interview</title>
-</head>
-<body>
+<h2>Question {{ q_no }}</h2>
 
-    <h2>Role: {{ role }}</h2>
+<p>{{ question }}</p>
 
-    <h3>Question:</h3>
-    <p>{{ question }}</p>
+<form method="POST" action="/submit/">
+  {% csrf_token %}
 
-    <form method="POST" action="/submit/">
-        {% csrf_token %}
-        
-        <textarea name="answer" rows="5" cols="50"></textarea>
-        <br><br>
+  <textarea name="answer" rows="5" cols="40"></textarea><br><br>
 
-        <button type="submit">Submit Answer</button>
-    </form>
-
-</body>
-</html>
+  <button type="submit">Next</button>
+</form>

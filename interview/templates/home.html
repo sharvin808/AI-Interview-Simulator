@@ -6,13 +6,14 @@
 <body>
     <h1>Welcome to AI Interview Simulator</h1>
 
-    <form method="POST">
+    <form method="POST" action="/start/">
         {% csrf_token %}
         
         <label>Select Role:</label>
         <select name="role">
             <option value="Java Developer">Java Developer</option>
             <option value="Python Developer">Python Developer</option>
+            <option value="Web Developer">Web Developer</option>
             <option value="HR">HR</option>
         </select>
 

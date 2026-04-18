@@ -16,7 +16,7 @@ QUESTIONS = {
         "What is multithreading?",
         "Explain exception handling in Java."
     ],
-    "web": [
+    "Web Developer": [
         "What is HTML, CSS, and JavaScript?",
         "Difference between frontend and backend.",
         "What is REST API?",
